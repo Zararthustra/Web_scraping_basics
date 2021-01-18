@@ -6,7 +6,8 @@ response = requests.get(url)
 
 if response.ok:
     soup = BeautifulSoup(response.text)
-    lis = soup.findAll('li')
-    for li in lis:
-        a = li.findAll('span')
-        print(str(a) + '\n')
+    span = soup.findAll('span')
+    name = soup.find('span', {'class': 'nom'})
+
+    for n in span:
+        print(n.text + '\n')
