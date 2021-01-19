@@ -4,6 +4,10 @@ import requests
 # BeautifulSoup4 is an HTML parser so we can drill down into the HTML tree
 from bs4 import BeautifulSoup
 
+# Small utility function to extra text part of a node with null check
+def toText(node):
+    return node.text if node else 'N/A'
+
 # slurp the remote page into a local variable
 url = "https://www.sante.fr/centres-vaccination-covid.html/"
 response = requests.get(url)
@@ -24,13 +28,13 @@ for department in allDepartments:
     print('Le département ' + department.text + ' contient ' + str(len(list(department.next_sibling.children))) + ' centres de vaccination')
     for center in allCenters:
         print( '\t'
-              + center.find('span', class_='nom').text
+              + toText(center.find('span', class_='nom'))
               + '\n\t\t'
-              + (center.find('span', class_='addresse').text if center.find('span', class_='addresse') else 'N/A')
+              + toText(center.find('span', class_='addresse'))
               + ','
-              + center.find('span', class_='codePostal').text
+              + toText(center.find('span', class_='codePostal'))
               + ' '
-              + center.find('span', class_='ville').text
+              + toText(center.find('span', class_='ville'))
               + ' - '
               + (center.find('span', class_='telephone fixe').find('a').text if center.find('span', class_='telephone fixe') else 'N/A')
               + ' - '
