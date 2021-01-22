@@ -1,8 +1,12 @@
 import requests
+import json
 from bs4 import BeautifulSoup
 
 url = "https://www.sante.fr/centres-vaccination-covid.html/"
 response = requests.get(url)
+dep_list = []
+center_list = [[]]
+_dict = {}
 
 if response.ok:
     web_page = BeautifulSoup(response.text, 'html.parser')
@@ -10,13 +14,14 @@ if response.ok:
     
     for department in departments:
 
+        dep_list += [department.text]
         centers = department.next_sibling.children
         dep_len = len(department.text) + 2
         center_num = 0
         centers_num = len(list(department.next_sibling.children))
         
-        print("{}\n {} \n{}\n\n Le département contient {} centres de vaccinations:\n"\
-                .format('='*dep_len, department.text, '='*dep_len, centers_num))
+        #print("{}\n {} \n{}\n\n Le département contient {} centres de vaccinations:\n"\
+#                .format('='*dep_len, department.text, '='*dep_len, centers_num))
 
         for center in centers:
 
@@ -47,6 +52,10 @@ if response.ok:
             else:
                 center_url = "Site web inconnu"
 
-            print("\t{})\t{}\n\nAdresse:\t{}\nCode Postal:\t{}\nVille:\t\t{}\nTéléphone:\t{}\
-                    \nSite web:\t{}\n\n".format(center_num, name, address, postal, city, phone, center_url))
-        
+            center_list += [[name, address, postal, city, phone]]
+#            print("\t{})\t{}\n\nAdresse:\t{}\nCode Postal:\t{}\nVille:\t\t{}\nTéléphone:\t{}\
+#                    \nSite web:\t{}\n\n".format(center_num, name, address, postal, city, phone, center_url))
+
+zipp = zip(dep_list, center_list)
+_dict = dict(zipp)
+print(_dict)
