@@ -14,7 +14,7 @@ if response.ok:
     
     for department in departments:
 
-        dep_list += [department.text]
+        dep_list = [department.text]
         centers = department.next_sibling.children
         dep_len = len(department.text) + 2
         center_num = 0
@@ -52,10 +52,11 @@ if response.ok:
             else:
                 center_url = "Site web inconnu"
 
-            center_list += [[name, address, postal, city, phone]]
+            center_list = [[name, address, postal, city, phone]]
+            for i in center_list:
+                _dict[dep_list].append(i)
+
+        center_list = [[]]
 #            print("\t{})\t{}\n\nAdresse:\t{}\nCode Postal:\t{}\nVille:\t\t{}\nTéléphone:\t{}\
 #                    \nSite web:\t{}\n\n".format(center_num, name, address, postal, city, phone, center_url))
-
-zipp = zip(dep_list, center_list)
-_dict = dict(zipp)
 print(_dict)
