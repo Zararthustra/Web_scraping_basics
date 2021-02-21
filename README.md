@@ -1,6 +1,7 @@
 # Scraping all french covid vaccination centers
 
 This personal project was motivated by the actual **COVID-19 sanitary crisis** and what I have just learnt about **web scraping** and **json serialization**.
+
 The URL source is provided by [Sante.fr](https://www.sante.fr/cf/centres-vaccination-covid.html), the **official french government health web page**
 
 /!\ *The link might be dead as the crisis goes by* /!\
