@@ -11,8 +11,33 @@ I added some comments to make the code more readable for anyone.
 
 ## covac.json
 A json file which can be manipulated by all programming languages.
+
 Format:
+
 **{'Department': {center's name, city, address, postal, phone, url}}**
 
 ## human_readable_file.txt
 Its name is explicit. A file with a **clean print** of each department and centers associated.
+
+Format:
+
+=======================
+
+ code postal - nom du département 
+ 
+=======================
+
+
+  Le département contient X centres de vaccinations:
+
+ 1 )	Nom du premier centre de vaccination
+
+Adresse:	XXX
+
+Code Postal:	XXX
+
+Ville:		XXX
+
+Téléphone:	XXX
+
+Site web:	XXX
