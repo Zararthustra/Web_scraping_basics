@@ -1,3 +1,5 @@
+![Alt Text](https://vence.fr/wp-content/uploads/2021/01/vaccination.jpg)
+
 # Scraping all french covid vaccination centers
 
 This personal project was motivated by the actual **COVID-19 sanitary crisis** and what I have just learnt about **web scraping** and **json serialization**.
