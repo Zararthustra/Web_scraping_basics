@@ -42,7 +42,7 @@ for department in departments:
         center_url = center.find('span', class_='siteWeb').find('a')['href'] if center.find('span', class_='siteWeb') else "Site web inconnu"
 
         # Append all centers and their items into json_dict: key="department.text": value=centers_list
-        items_dict = {"address": address, "postal": postal, "city": city, "phone": phone, "url": center_url}
+        items_dict = {"name": name, "address": address, "postal": postal, "city": city, "phone": phone, "url": center_url}
         centers_list.append(items_dict)
         json_dict[department.text] = centers_list
 
