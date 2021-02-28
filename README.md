@@ -17,7 +17,7 @@ A json file which can be manipulated by all programming languages.
 
 Format:
 
-**{'Department': {center's name, city, address, postal, phone, url}}**
+**{'Department': [{center's address, name, phone, postal, city, url}]}**
 
 ## [human_readable_file.txt](https://github.com/Zararthustra/Web_scraping_basics/blob/main/human_readable_file.txt)
 Its name is explicit. A file with a **clean print** of each department and centers associated.
